@@ -16,6 +16,11 @@ pipeline {
                 }
             }
         }
+        stage('Health check') {
+            steps {
+                sh 'curl --silent --fail "http://pv-project3.s3-website-us-west-2.amazonaws.com/" >/dev/null'
+            }
+        }
         
     }
 }
